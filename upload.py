@@ -14,10 +14,10 @@ include_file = ["package.json", "index.js"]
 webdav_folder = "异常生物见闻录RPG/PC"
 
 options = {
-    'webdav_hostname': "${{ secrets.WEBDAV_HOSTNAME }}",
-    'webdav_login':    "${{ secrets.WEBDAV_LOGIN }}",
-    'webdav_password': "${{ secrets.WEBDAV_PASSWORD }}",
-    "webdav_root":     "${{ secrets.WEBDAV_ROOT }}",
+    'webdav_hostname': os.environ.get("WEBDAV_HOSTNAME"),
+    'webdav_login':    os.environ.get("WEBDAV_LOGIN"),
+    'webdav_password': os.environ.get("WEBDAV_PASSWORD"),
+    "webdav_root":     os.environ.get("WEBDAV_ROOT"),
     'webdav_disable_check': True,
 }
 
