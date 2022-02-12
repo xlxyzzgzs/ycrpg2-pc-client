@@ -1,0 +1,17 @@
+{
+    "name": "ycrpg",
+    "main": "index.js",
+    "js-flags": "--expose-gc",
+    "window": {
+        "title": "异常生物见闻录",
+        "toolbar": true,
+        "width": 1024,
+        "height": 560,
+        "icon": "icon/icon.png"
+    },
+    "chromium-args": "--enable-node-worker",
+    "node-remote": "<all_urls>",
+    "web_accessible_resources": [
+        "*"
+    ]
+}

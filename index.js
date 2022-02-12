@@ -1,0 +1,1 @@
+nw.Window.open(`https://ycrpg.xyzzgame.com/YCrpg2/index.html`);
