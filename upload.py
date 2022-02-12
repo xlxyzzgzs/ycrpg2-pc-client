@@ -25,7 +25,8 @@ client = Client(options)
 
 
 def print_upload_progress(current_size, total_size):
-    print("\rUploading... %.2f%%" % (100 * current_size / total_size), end="")
+    # print("\rUploading... %.2f%%" % (100 * current_size / total_size), end="")
+    pass
 
 
 for target_arch, com_form in zip(publish_target, compress_format):
