@@ -1,6 +1,6 @@
 **/*
 !index.js
 !package.json
-!upload.py
+!update.py
 !.gitignore
-!.github
+!.github/**

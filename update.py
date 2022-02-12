@@ -13,21 +13,6 @@ include_file = ["package.json", "index.js"]
 
 webdav_folder = "异常生物见闻录RPG/PC"
 
-options = {
-    'webdav_hostname': os.environ.get("WEBDAV_HOSTNAME"),
-    'webdav_login':    os.environ.get("WEBDAV_LOGIN"),
-    'webdav_password': os.environ.get("WEBDAV_PASSWORD"),
-    "webdav_root":     os.environ.get("WEBDAV_ROOT"),
-    'webdav_disable_check': True,
-}
-
-client = Client(options)
-
-
-def print_upload_progress(current_size, total_size):
-    # print("\rUploading... %.2f%%" % (100 * current_size / total_size), end="")
-    pass
-
 
 for target_arch, com_form in zip(publish_target, compress_format):
 
@@ -80,8 +65,3 @@ for target_arch, com_form in zip(publish_target, compress_format):
                 for file in files:
                     tar_ref.add(os.path.join(root, file))
     print("Compressed " + app_compress_file)
-
-    print("Uploading " + app_compress_file)
-    client.upload_file(os.path.join(webdav_folder, app_compress_file),
-                       app_compress_file, print_upload_progress)
-    print("Uploaded " + app_compress_file)

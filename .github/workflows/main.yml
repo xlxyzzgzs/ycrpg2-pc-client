@@ -30,14 +30,35 @@ jobs:
         uses: actions/setup-python@v2.3.2
         with:
           python-version: 3.9
-      - name: Install webdev
-        run:  |
-            pip install webdavclient3
+
       - name: Run Python Script
         run:  |
             python upload.py
-        env:
-          WEBDAV_HOSTNAME: ${{ secrets.WEBDAV_HOSTNAME }}
-          WEBDAV_LOGIN: ${{ secrets.WEBDAV_LOGIN }}
-          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
-          WEBDAV_ROOT: ${{ secrets.WEBDAV_ROOT }}
+
+      - name: release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "auto build"
+          files: |
+            app-win-x64.zip
+            app-win-ia32.zip
+            app-linux-x64.tar.gz
+            app-linux-ia32.tar.gz
+            app-osx-x64.zip
+      
+      - name: push to webdav
+        uses: bxb100/action-upload-webdav@main
+        with:
+          webdav_address: ${{ secrets.WEBDAV_ADDRESS }}
+          webdav_username: ${{ secrets.WEBDAV_USERNAME }}
+          webdav_password: ${{ secrets.WEBDAV_PASSWORD }}
+          webdav_upload_path: "异常生物见闻录RPG/PC"
+          files: |
+            app-win-x64.zip
+            app-win-ia32.zip
+            app-linux-x64.tar.gz
+            app-linux-ia32.tar.gz
+            app-osx-x64.zip
