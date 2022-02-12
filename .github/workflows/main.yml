@@ -36,3 +36,8 @@ jobs:
       - name: Run Python Script
         run:  |
             python upload.py
+        env:
+          WEBDAV_HOSTNAME: ${{ secrets.WEBDAV_HOSTNAME }}
+          WEBDAV_LOGIN: ${{ secrets.WEBDAV_LOGIN }}
+          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
+          WEBDAV_ROOT: ${{ secrets.WEBDAV_ROOT }}

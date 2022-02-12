@@ -1,4 +1,3 @@
-import secrets
 from webdav3.client import Client
 import tarfile
 import zipfile
